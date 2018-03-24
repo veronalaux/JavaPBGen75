@@ -19,43 +19,18 @@ public class Funcionalidad {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner leer = new Scanner(System.in);
-        Edificio objEdificio = new Edificio();
-        Elevador objElevador = new Elevador();
-//        System.out.println("Personas por departamento: "+objEdificio.cantidadPersonas());
-        int opcion = 0;
-        int cantidadPersonas = objElevador.getPersonas();
+        Reloj watch = new Reloj();
+        
+        Edificio objEdificio;
+        //Si el piso es mayor a 6, se genera un ciclo que tiene como intervalo 0-6
         do {
-            System.out.println("=====ELEVATOR=====\n"
-                    + "0.- Salir(Por las escaleras)\n"
-                    + "1.- Subir persona(s)\n"
-                    + "2.- Bajar persona(s)\n"
-                    + "3.- Ver cuantos van\n"
-                    + "Dime cual elegiste:");
-            opcion = leer.nextInt();
-            switch (opcion) {
-                case 0:
-                    System.exit(0);
-                    break;
-                case 1:
-                    objElevador.setResp("subir");
-                    System.out.println("¿Cuántas personas van a subir?");
-                    int subir = leer.nextInt();
-                    cantidadPersonas = cantidadPersonas + subir;
-                    break;
-                case 2:
-                    objElevador.setResp("bajar");
-                    System.out.println("¿Cuántas personas van a bajar?");
-                    int bajar = leer.nextInt();
-                    cantidadPersonas = cantidadPersonas - bajar;
-                    break;
-                case 3:
-                    System.out.println("Van echos salchicha " + cantidadPersonas + " personas");
-                    break;
-                default:
-                    System.out.println("No juegues con el elevador");
-                    break;
+            objEdificio = new Edificio();
+            if (objEdificio.getPisoActual() > 6) {
+                System.out.println("El edificio no tiene esos pisos, escoje otro");
             }
-        } while (opcion != 0);
+        } while (objEdificio.getPisoActual() > 6 || objEdificio.getPisoActual() < 0);
+
+        Elevador objElevador = new Elevador();
     }
-    
+
 }

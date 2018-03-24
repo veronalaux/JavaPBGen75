@@ -20,32 +20,33 @@ public class Edificio {
     Random ran;
     Scanner leer;
 
+    //Asignarle el cero al piso inicial y asignar el ingresado por el ususario
     public Edificio() {
         leer = new Scanner(System.in);
+        int pisoActual = 0;
         System.out.println("Dime el piso actual");
-        int pisoActual = leer.nextInt();
+        pisoActual = leer.nextInt();
         PisoActual(pisoActual);
     }
 
+    //Generas aleatoriamente la cantidad de personas que van en el elevador
     public int cantidadPersonas() {
         ran = new Random();
         cantidadPeople = ran.nextInt(4) + 1;
         return cantidadPeople;
     }
 
+    //Retornas el piso en el que estás
     public int getPisoActual() {
         return cantidadPisos;
     }
 
+    //Asignas el valor del piso en el que estás
     public void PisoActual(int piso) {
-        if (piso > 6) {
-            System.out.println("El edificio no tiene esos pisos, escoje otro");
-            PisoActual(piso);
-        } else {
-            cantidadPisos = piso;
-        }
+        cantidadPisos = piso;
     }
 
+    //Cantidad de departamentos
     public int cantDepas() {
         cantidadDepas = 4;
         return cantidadDepas;
